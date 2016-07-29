@@ -4,27 +4,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <title>Too Drunk To Answer</title>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
   <link rel="stylesheet" href="yeti.css">
-  <!-- <link rel="stylesheet" href="style.css"> -->
   <base href="/">
 </head>
 <body ng-controller="MainController">
 
-<main class="row">
+<main class="row container-fluid">
   <div class="col-md-6 col-md-offset-3">
     <h1>Too Drunk To Answer</h1>
     <h4>A response generator for when you're too drunk to answer</h4>
-    <form ng-submit="generateResponse()">
+    <form ng-submit="generateResponse(answers)">
       <label for="asker"><h3>Who's asking?</h3></label>
       <select id="asker" ng-model="form.asker" class="form-control">
         <option disabled></option>
         <option>mom</option>
-        <option>boss</option>
-        <option>bf/gf</option>
-        <option>friend</option>
       </select>
       <label for="question"><h3>What are they asking?</h3></label>
       <select id="question" ng-model="form.question" class="form-control">
@@ -33,17 +28,17 @@
         <option>When will you get here?</option>
         <option>Why are you late?</option>
         <option>How are you?</option>
+        <option>Why are you ignoring my texts?</option>
+        <option>blah</option>
         <option></option>
         <option></option>
-        <option></option>
-        <option></option>
-      </select><Br>
+      </select><br>
       <input type="submit" class="form-control btn btn-info" value="Generate a Response">
     </form>
     <div ng-show="responseDiv">
-      <div ng-repeat="answer in answers">
-        {{answer}}
-      </div>
+      <br><br><hr>
+      <h4>Tell them...</h4>
+      <p>{{answer}}</p>
     </div>
   </div>
 </main>
