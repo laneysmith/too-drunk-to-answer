@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="tooDrunkToAnswer">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Too Drunk To Answer</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="yeti.css">
+  <base href="/">
+</head>
+<body ng-controller="MainController">
+<main class="row container-fluid">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Too Drunk To Answer</h1>
+    <h4>A response generator for when you're too drunk to answer</h4>
+    <form ng-submit="generateResponse(form.asker, form.question)" method="POST">
+      <label for="asker"><h3>Who's asking?</h3></label>
+      <select id="asker" name="asker" ng-model="form.asker" ng-change="getQuestionsFromApi(form.asker)" class="form-control">
+        <option disabled></option>
+        <option ng-repeat="asker in askers" value="{{asker.id}}">{{asker.asker}}</option>
+      </select>
+      <div ng-show="questionDiv">
+        <label for="question"><h3>What are they asking?</h3></label>
+        <select id="question" name="question" ng-model="form.question" ng-change="submitDiv=true" class="form-control">
+          <option disabled></option>
+          <option ng-repeat="question in questions" value="{{question.id}}">{{question.question}}</option>
+        </select><br>
+        <div ng-show="submitDiv">
+            <input type="submit" class="form-control btn btn-info" value="Generate a Response">
+          </form>
+          <div ng-show="answerDiv">
+            <br><br><hr>
+            <h4>Tell them...</h4>
+            <p>{{answer}}</p>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</main>
+
+   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script> -->
+   <script src="/js/app.js"></script>
+   <script src="/js/data.js"></script>
+   <script src="/js/factory.js"></script>
+   <script src="/js/controller.js"></script>
+   <!-- <script src="/js/directives.js"></script> -->
+   <!-- <script src="/js/filters.js"></script> -->
+</body>
+</html>
