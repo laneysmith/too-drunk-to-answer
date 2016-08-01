@@ -7,7 +7,7 @@ angular
 		// 		url: 'http://too-drunk-to-answer-server.herokuapp.com/api/askers'
 		// 	}).success(function(data, status, headers, config) {
 		this.getAskers = function() {
-			var promise = $http.jsonp('http://too-drunk-to-answer-server.herokuapp.com/api/askers').success(function(data, status, headers, config) {
+			var promise = $http.jsonp('https://too-drunk-to-answer-server.herokuapp.com/api/askers').success(function(data, status, headers, config) {
 				var askers = data;
 				return askers;
 			});
@@ -16,7 +16,7 @@ angular
 		this.getQuestions = function(askerId) {
 			var promise = $http({
 				method: 'GET',
-				url: 'http://too-drunk-to-answer-server.herokuapp.com/api/askers/' + askerId
+				url: 'https://too-drunk-to-answer-server.herokuapp.com/api/askers/' + askerId
 			}).success(function(data, status, headers, config) {
 				var questions = data;
 				return questions;
@@ -26,7 +26,7 @@ angular
 		this.getAnswer = function(askerId, questionId) {
 			var promise = $http({
 				method: 'GET',
-				url: 'http://too-drunk-to-answer-server.herokuapp.com/api/askers/' + askerId + '/questions/' + questionId
+				url: 'https://too-drunk-to-answer-server.herokuapp.com/api/askers/' + askerId + '/questions/' + questionId
 			}).success(function(data, status, headers, config) {
 				var answers = data;
 				return answers;
