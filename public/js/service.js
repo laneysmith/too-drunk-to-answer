@@ -9,20 +9,14 @@ angular
 			return promise;
 		};
 		this.getQuestions = function(askerId) {
-			var promise = $http({
-				method: 'GET',
-				url: 'https://too-drunk-to-answer-server.herokuapp.com/api/askers/' + askerId
-			}).success(function(data, status, headers, config) {
+			var promise = $http.get('https://too-drunk-to-answer-server.herokuapp.com/api/askers/' + askerId).success(function(data, status, headers, config) {
 				var questions = data;
 				return questions;
 			});
 			return promise;
 		};
 		this.getAnswer = function(askerId, questionId) {
-			var promise = $http({
-				method: 'GET',
-				url: 'https://too-drunk-to-answer-server.herokuapp.com/api/askers/' + askerId + '/questions/' + questionId
-			}).success(function(data, status, headers, config) {
+			var promise = $http.get('https://too-drunk-to-answer-server.herokuapp.com/api/askers/' + askerId + '/questions/' + questionId).success(function(data, status, headers, config) {
 				var answers = data;
 				return answers;
 			});

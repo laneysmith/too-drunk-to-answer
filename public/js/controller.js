@@ -4,7 +4,6 @@ angular
 		$scope.questionDiv = false;
 		$scope.submitDiv = false;
 		$scope.answerDiv = false;
-		// $scope.answer;
 		// initializes list of askers by pulling full list from API
 		init();
 		function init() {
@@ -27,19 +26,7 @@ angular
 			return drunkAnswers.getAnswer(askerId, questionId).then(function(data) {
 				return data.data.data;
 			}).then(function(answers) {
-				console.log(answers);
 				$scope.answer = answers[Math.floor(Math.random() * answers.length)].response;
 			});
 		}
-
-		// $scope.pickRandom = function(answers) {
-		// 	// var filtered = answers.filter(function(arrayItem) {
-		// 	// 	return arrayItem.asker === $scope.form.asker && arrayItem.question === $scope.form.question
-		// 	// });
-		// 	var random = answers[Math.floor(Math.random() * answers.length)].response;
-		// 	// $scope.responseDiv = true;
-		// 	$scope.answer = random
-		// }
-
-
 	}]);
