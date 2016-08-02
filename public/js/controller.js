@@ -9,7 +9,6 @@ angular
 		init();
 		function init() {
 			return drunkAnswers.getAskers().then(function(data) {
-				console.log("DATA=", data);
 				$scope.askers = data.data.data;
 			});
 		}
